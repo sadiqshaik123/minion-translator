@@ -1,1 +1,1 @@
-Open index.html in a browser. Use English->Minion or Minion->English pages.
+Open index.html

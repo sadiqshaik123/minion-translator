@@ -1,1 +1,24 @@
-const d={hello:'bello',hi:'bello',bye:'poopaye',friend:'kanpai',thanks:'tank yu',thank:'tank',you:'yu',my:'mi',food:'papaya',banana:'banana',yes:'si',no:'nah',love:'muak'};const r={};Object.keys(d).forEach(k=>{r[d[k]]=k});function toMinion(){let t=document.getElementById('input').value.toLowerCase().split(/\s+/);document.getElementById('output').value=t.map(w=>d[w]||('ba'+w)).join(' ')}function toEnglish(){let t=document.getElementById('input').value.toLowerCase().split(/\s+/);document.getElementById('output').value=t.map(w=>r[w]||w).join(' ')}
+
+const dict={
+hello:"bello",hi:"bello",bye:"poopaye","thank":"tank","thanks":"tank yu","thank you":"tank yu",
+you:"yu",my:"mi",friend:"kanpai",food:"papaya",banana:"banana",yes:"si",no:"nah",love:"muak"
+};
+const rev={
+"bello":"hello","poopaye":"bye","tank":"thank","tank yu":"thank you","yu":"you","mi":"my","kanpai":"friend","papaya":"food","banana":"banana","si":"yes","nah":"no","muak":"love"
+};
+function toMinion(){
+ let input=document.getElementById("input").value.toLowerCase().trim();
+ let out=input;
+ Object.keys(dict).sort((a,b)=>b.length-a.length).forEach(k=>{
+   out=out.replaceAll(k,dict[k]);
+ });
+ document.getElementById("output").value=out;
+}
+function toEnglish(){
+ let input=document.getElementById("input").value.toLowerCase().trim();
+ let out=input;
+ Object.keys(rev).sort((a,b)=>b.length-a.length).forEach(k=>{
+   out=out.replaceAll(k,rev[k]);
+ });
+ document.getElementById("output").value=out;
+}
